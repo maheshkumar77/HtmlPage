@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ban {
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden; 
+            position: relative;
+        }
+        .ban .slider {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            top: 10%;
+            left: calc(50% - 100px);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            animation: autor 20s linear infinite;
+            z-index: 2;
+        }
+        @keyframes autor {
+            from{
+              transform: perspective(1000px)  rotateY(0deg);  
+            }
+            to{
+                transform: perspective(1000px)  rotateY(360deg);  
+            }
+            
+        }
+        .ban .slider .item {
+            position: absolute;
+            inset: 0;
+            transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+        }
+        .ban .slider .item img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover;
+        }
+        .ban .content{
+            position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform:  translateX(-50%);
+              width: min(1400px, 100vw);
+              height: max-content;
+              padding-bottom: 100px;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: center ;
+              z-index: 1;
+        }
+        .ban .content h1{
+            font-size: 6rem;
+            line-height: 1em;
+            color: rgb(56, 52, 52);
+            position: relative;
+            left: 11rem;
+        }
+        .ban .content h1::after{
+            position: absolute;
+            inset: 0;
+            content: attr(data-content);
+            z-index: 2;
+            -webkit-text-stroke: 2px white;
+            color: transparent;
+        }
+        .ban .content .auther{
+            text-align: right;
+            max-width: 200px;
+        }
+        .ban .content h2{
+            font-size: 3rem;
+        }
+        .ban .content .model{
+            background-image: url(./logo/js.jpeg);
+            width: 100%;
+            height: 70vh;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-size: auto 130%;
+            background-repeat: no-repeat;
+           z-index: 1;
+            background-position: top center;
+        }
+    </style>
+</head>
+<body>
+    <div class="ban">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="./logo/html.png" alt="Image 1"></div>
+            <div class="item" style="--position: 2"><img src="./logo/css.jpeg" alt="Image 2"></div>
+            <div class="item" style="--position: 3"><img src="./logo/java.png" alt="Image 3"></div>
+            <div class="item" style="--position: 4"><img src="./logo/js.jpeg" alt="Image 4"></div>
+            <div class="item" style="--position: 5"><img src="./logo/node.jpeg" alt="Image 5"></div>
+            <div class="item" style="--position: 6"><img src="./logo/css.jpeg" alt="Image 6"></div>
+            <div class="item" style="--position: 7"><img src="./logo/sql.jpeg" alt="Image 7"></div>
+            <div class="item" style="--position: 8"><img src="../friends/DSC_0203.JPG" alt="Image 8"></div>
+            <div class="item" style="--position: 9"><img src="../WhatsApp Image 2023-09-27 at 08.26.20.jpg" alt="Image 9"></div>
+            <div class="item" style="--position: 10"><img src="../WhatsApp Image 2024-08-13 at 02.00.24_5dea5276.jpg" alt="Image 10"></div>
+        </div>
+        <div class="content">
+            <h1 data-content="CSS ONLY"> CSS ONLY</h1>
+            <div class="auther">
+                <h2>
+                    mahesh
+                </h2>
+                <p><b>web design</b></p>
+                <p> gm mara mg sale</p>
+            </div>
+            <div class="model">
+
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
